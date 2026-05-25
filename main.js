@@ -1,14 +1,9 @@
-let currentSlide = 0;
+let current = 0;
 const slides = document.querySelectorAll('.slide');
 
-// Función para mover el slider
-function moveSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
+function autoSlider() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
 }
-
-// Auto-play (Cambio automático cada 5 segundos)
-setInterval(() => {
-    moveSlide(1);
-}, 5000);
+setInterval(autoSlider, 6000); // Cambia cada 6 segundos
