@@ -1,52 +1,196 @@
-/* --- CONFIGURACIÓN GLOBAL --- */
-:root {
-    --primary-color: #003366;  /* Azul Institucional */
-    --accent-color: #d4af37;   /* Dorado */
-    --topbar-bg: #e63946;      /* Rojo Acento (Topbar) */
-    --text-on-dark: #ffffff;
-    --text-primary: #333333;
-    --header-bg: #ffffff;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Open Sans', Arial, sans-serif; color: var(--text-primary); line-height: 1.6; background-color: #fcfcfc; }
-.container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+body{
+    background:#f4f4f4;
+    color:#333;
+}
 
-/* --- 1. TOPBAR (Barra Superior Roja) --- */
-.top-bar { background-color: var(--topbar-bg); color: var(--text-on-dark); font-size: 11px; font-weight: 700; padding: 6px 0; border-radius: 0 0 15px 15px; }
-.sede-selector { cursor: pointer; display: flex; align-items: center; gap: 5px; }
-.secondary-nav { display: flex; gap: 10px; }
-.btn-link { color: var(--text-on-dark); text-decoration: none; border: 1px solid #ffffffa1; padding: 3px 10px; border-radius: 5px; transition: 0.3s; }
-.btn-link:hover { background-color: rgba(255, 255, 255, 0.2); }
+/* HEADER */
 
-/* --- 2. MAIN HEADER (Logo y Menú Principal) --- */
-.main-header { background-color: var(--header-bg); padding: 25px 0 10px 0; }
-.main-nav ul { list-style: none; display: flex; gap: 20px; }
-.main-nav a { text-decoration: none; color: #555; font-size: 13px; font-weight: 600; padding: 10px 0; transition: 0.3s; border-bottom: 2px solid transparent; }
-.main-nav a:hover, .main-nav a.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); }
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#0d1b2a;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    z-index:1000;
+}
 
-/* --- 3. BANNER CAROUSEL (Slider Profesional) --- */
-.banner-carousel { position: relative; width: 100%; height: 550px; overflow: hidden; background-color: #000; }
-.slides-container { position: relative; width: 100%; height: 100%; }
-.slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; }
-.slide.active { opacity: 1; z-index: 1; }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-/* Superposición de Texto */
-.slide-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(0,51,102,0.85) 0%, rgba(0,51,102,0) 60%); display: flex; align-items: center; }
-.slide-text { color: var(--text-on-dark); flex-direction: column; align-items: flex-start; justify-content: center; max-width: 600px; }
-.slide-text h3 { font-size: 20px; font-weight: 400; text-transform: uppercase; letter-spacing: 2px; }
-.slide-text h2 { font-size: 50px; font-weight: 700; color: var(--text-on-dark); margin: 10px 0; }
-.slide-text p { font-size: 16px; margin-bottom: 30px; }
-.btn-primary { background-color: #ffffff; color: var(--primary-color); text-decoration: none; padding: 12px 30px; font-weight: 700; border-radius: 5px; text-transform: uppercase; font-size: 14px; transition: 0.3s; }
-.btn-primary:hover { background-color: #e0e0e0; }
+.logo img{
+    width:50px;
+}
 
-/* Controles del Slider */
-.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 15px 20px; cursor: pointer; z-index: 10; font-size: 20px; transition: 0.3s; }
-.slider-btn:hover { background: rgba(0,0,0,0.7); }
-.next { right: 0; }
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
 
-/* --- 4. MAIN CONTENT AREA --- */
-.main-content { padding: 80px 0; }
-.main-content h2 { color: var(--primary-color); font-size: 32px; margin-bottom: 20px; text-align: center; }
-.main-content p { text-align: center; color: #666; max-width: 800px; margin: 0 auto; }
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00b4d8;
+}
+
+/* SLIDER */
+
+.slider{
+    margin-top:80px;
+    position:relative;
+    max-width:100%;
+    height:550px;
+    overflow:hidden;
+}
+
+.slides{
+    display:none;
+}
+
+.slides img{
+    width:100%;
+    height:550px;
+    object-fit:cover;
+}
+
+/* BOTONES */
+
+.prev,
+.next{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-size:40px;
+    padding:16px;
+    background:rgba(0,0,0,0.4);
+    user-select:none;
+    transition:0.3s;
+}
+
+.prev{
+    left:0;
+}
+
+.next{
+    right:0;
+}
+
+.prev:hover,
+.next:hover{
+    background:rgba(0,0,0,0.8);
+}
+
+/* ANIMACIÓN */
+
+.fade{
+    animation:fade 1s;
+}
+
+@keyframes fade{
+    from{opacity:0.4}
+    to{opacity:1}
+}
+
+/* SECCIONES */
+
+.section{
+    padding:80px 50px;
+    text-align:center;
+}
+
+.section h2{
+    margin-bottom:25px;
+    font-size:36px;
+    color:#0d1b2a;
+}
+
+.gray{
+    background:#e9ecef;
+}
+
+/* CARDS */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    width:300px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* GALERÍA */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0d1b2a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .slider,
+    .slides img{
+        height:350px;
+    }
+}
