@@ -1,29 +1,45 @@
-// --- LÓGICA DEL SLIDER PROFESIONAL ---
+let slideIndex = 0;
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('#main-slider .slide');
+const slides = document.querySelectorAll(".slides");
 
-// Función para mostrar un slide específico
-function showSlide(index) {
-    // Primero ocultamos todos los slides
-    slides.forEach(slide => {
-        slide.classList.remove('active');
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+
+showSlides(slideIndex);
+
+function showSlides(n){
+
+    if(n >= slides.length){
+        slideIndex = 0;
+    }
+
+    if(n < 0){
+        slideIndex = slides.length - 1;
+    }
+
+    slides.forEach(slide=>{
+        slide.style.display = "none";
     });
-    
-    // Calculamos el índice circularmente
-    currentSlide = (index + slides.length) % slides.length;
-    
-    // Mostramos el slide actual
-    slides[currentSlide].classList.add('active');
+
+    slides[slideIndex].style.display = "block";
 }
 
-// Función para avanzar o retroceder (botones)
-function moveSlide(direction) {
-    showSlide(currentSlide + direction);
+function nextSlide(){
+    slideIndex++;
+    showSlides(slideIndex);
 }
 
-// --- CAMBIO AUTOMÁTICO (Auto-scroll) ---
-// Cambia de slide cada 7 segundos para una lectura tranquila
-setInterval(() => {
-    moveSlide(1);
-}, 7000);
+function prevSlide(){
+    slideIndex--;
+    showSlides(slideIndex);
+}
+
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
+
+/* AUTO SLIDE */
+
+setInterval(()=>{
+    slideIndex++;
+    showSlides(slideIndex);
+},5000);
