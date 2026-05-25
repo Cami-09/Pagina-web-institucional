@@ -3,20 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Institucional</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portal Institucional - Diseño Profesional</title>
+    <!-- Estilos organizados para Joomla -->
+    <style>
+        /* style.css */
+        :root {
+            --primary: #003366; /* Azul Institucional */
+            --secondary: #f4f4f4;
+            --accent: #d4af37; /* Dorado */
+        }
+
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+
+        /* Header */
+        header { background: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Banner Container (Prototipo para GitHub) */
+        .banner-container { position: relative; width: 100%; height: 500px; overflow: hidden; background: #ddd; }
+        .banner-slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .banner-slide.active { opacity: 1; }
+        .banner-slide img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .banner-controls { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 20px; box-sizing: border-box; }
+        .btn-control { background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
+
+        /* Contenido */
+        .main-content { padding: 40px; max-width: 1000px; margin: auto; }
+    </style>
 </head>
 <body>
+
     <header>
-        <nav>Logo Institucional</nav>
+        <div class="logo">LOGO INSTITUCIONAL</div>
+        <nav>Inicio | Nosotros | Servicios | Contacto</nav>
     </header>
 
-    <section id="banner-container">
-        <div class="banner">
-            <img src="assets/img/banner1.jpg" alt="Banner Institucional">
+    <!-- Sección de Banner (Editable en Joomla mediante Módulos) -->
+    <section class="banner-container" id="banner-slider">
+        <div class="banner-slide active">
+            <img src="https://via.placeholder.com/1200x500/003366/ffffff?text=Institucion+Banner+1" alt="Banner 1">
+        </div>
+        <div class="banner-slide">
+            <img src="https://via.placeholder.com/1200x500/d4af37/ffffff?text=Institucion+Banner+2" alt="Banner 2">
+        </div>
+        
+        <div class="banner-controls">
+            <button class="btn-control" onclick="prevSlide()">&#10094;</button>
+            <button class="btn-control" onclick="nextSlide()">&#10095;</button>
         </div>
     </section>
 
-    <script src="assets/js/main.js"></script>
+    <main class="main-content">
+        <h1>Bienvenidos al Portal Institucional</h1>
+        <p>Este es el espacio de contenido dinámico. Cuando subas a Joomla, este texto será editado desde el Gestor de Artículos.</p>
+    </main>
+
+    <script>
+        // main.js
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+        
+        // Auto-scroll cada 5 segundos
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
