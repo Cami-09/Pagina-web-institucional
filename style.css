@@ -1,17 +1,18 @@
-/* Estilos Institucionales */
-body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
-.main-header { background: #003366; color: white; padding: 15px 50px; display: flex; justify-content: space-between; }
-.main-nav ul { list-style: none; display: flex; gap: 20px; }
-.main-nav a { color: white; text-decoration: none; font-weight: bold; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Arial, sans-serif; }
 
-/* Banner Profesional */
-.banner-container { position: relative; width: 100%; height: 400px; overflow: hidden; }
-.slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 0.8s ease-in-out; }
+/* Barra superior */
+.top-bar { background: #e63946; color: white; padding: 5px 50px; display: flex; justify-content: space-between; font-size: 12px; }
+
+/* Header estilo institucional */
+.main-header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 2px solid #003366; }
+.logo h1 { color: #003366; font-size: 28px; margin-right: 50px; }
+.main-nav ul { display: flex; list-style: none; gap: 30px; }
+.main-nav a { color: #333; text-decoration: none; font-weight: bold; font-size: 14px; }
+
+/* Banner con texto encima */
+.banner-container { position: relative; height: 400px; background: #000; }
+.slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 0.7s; }
 .slide.active { opacity: 1; }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
-
-.prev, .next { position: absolute; top: 50%; background: rgba(0,0,0,0.4); color: white; border: none; padding: 15px; cursor: pointer; }
-.next { right: 0; }
-
-/* Main Content */
-.content-area { padding: 50px; max-width: 1100px; margin: auto; }
+.slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(70%); }
+.banner-text { position: absolute; top: 30%; left: 10%; color: white; z-index: 2; }
