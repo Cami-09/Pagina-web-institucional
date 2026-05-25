@@ -1,0 +1,9 @@
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Estilo institucional */
+body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+header { background: #002855; color: white; padding: 20px; text-align: center; }
+
+#banner-container { width: 100%; overflow: hidden; }
+.banner img { width: 100%; height: auto; display: block; }
