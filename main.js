@@ -3,6 +3,7 @@ let slideIndex = 0;
 const slides = document.querySelectorAll(".slides");
 
 const next = document.querySelector(".next");
+
 const prev = document.querySelector(".prev");
 
 showSlides(slideIndex);
@@ -35,9 +36,8 @@ function prevSlide(){
 }
 
 next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
 
-/* AUTO SLIDE */
+prev.addEventListener("click", prevSlide);
 
 setInterval(()=>{
     slideIndex++;
