@@ -3,77 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Institucional - Diseño Profesional</title>
-    <!-- Estilos organizados para Joomla -->
-    <style>
-        /* style.css */
-        :root {
-            --primary: #003366; /* Azul Institucional */
-            --secondary: #f4f4f4;
-            --accent: #d4af37; /* Dorado */
-        }
-
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; }
-
-        /* Header */
-        header { background: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        
-        /* Banner Container (Prototipo para GitHub) */
-        .banner-container { position: relative; width: 100%; height: 500px; overflow: hidden; background: #ddd; }
-        .banner-slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease-in-out; }
-        .banner-slide.active { opacity: 1; }
-        .banner-slide img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .banner-controls { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 20px; box-sizing: border-box; }
-        .btn-control { background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
-
-        /* Contenido */
-        .main-content { padding: 40px; max-width: 1000px; margin: auto; }
-    </style>
+    <title>Portal Institucional - Uniciencia Clone</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">LOGO INSTITUCIONAL</div>
-        <nav>Inicio | Nosotros | Servicios | Contacto</nav>
+    <!-- Header / Menú -->
+    <header class="main-header">
+        <div class="logo">Logo Institucional</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Académico</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Sección de Banner (Editable en Joomla mediante Módulos) -->
+    <!-- Banner (Slider) -->
     <section class="banner-container" id="banner-slider">
-        <div class="banner-slide active">
-            <img src="https://via.placeholder.com/1200x500/003366/ffffff?text=Institucion+Banner+1" alt="Banner 1">
-        </div>
-        <div class="banner-slide">
-            <img src="https://via.placeholder.com/1200x500/d4af37/ffffff?text=Institucion+Banner+2" alt="Banner 2">
-        </div>
-        
-        <div class="banner-controls">
-            <button class="btn-control" onclick="prevSlide()">&#10094;</button>
-            <button class="btn-control" onclick="nextSlide()">&#10095;</button>
-        </div>
+        <div class="slide active"><img src="https://via.placeholder.com/1200x400/003366/ffffff?text=Banner+Institucional+1" alt="B1"></div>
+        <div class="slide"><img src="https://via.placeholder.com/1200x400/d4af37/ffffff?text=Banner+Institucional+2" alt="B2"></div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </section>
 
-    <main class="main-content">
-        <h1>Bienvenidos al Portal Institucional</h1>
-        <p>Este es el espacio de contenido dinámico. Cuando subas a Joomla, este texto será editado desde el Gestor de Artículos.</p>
+    <!-- Contenido Principal (Editable vía CMS) -->
+    <main class="content-area">
+        <h1>Bienvenidos a la Institución</h1>
+        <p>Este bloque representa el cuerpo de tu página, donde Joomla inyectará los artículos mediante la etiqueta &lt;jdoc:include type="component" /&gt; cuando realices la migración.</p>
     </main>
 
-    <script>
-        // main.js
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.banner-slide');
-
-        function showSlide(n) {
-            slides.forEach(s => s.classList.remove('active'));
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() { showSlide(currentSlide + 1); }
-        function prevSlide() { showSlide(currentSlide - 1); }
-        
-        // Auto-scroll cada 5 segundos
-        setInterval(nextSlide, 5000);
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
