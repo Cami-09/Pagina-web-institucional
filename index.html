@@ -2,38 +2,39 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Institucional - Uniciencia Clone</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Header / Menú -->
+    <div class="top-bar">
+        <span>ESCOLGE TU SEDE ▼</span>
+        <div class="links">U-VIRTUAL | SIGA | PQRSD | PSE</div>
+    </div>
+
     <header class="main-header">
-        <div class="logo">Logo Institucional</div>
+        <div class="logo"><h1>UNICIENCIA</h1></div>
         <nav class="main-nav">
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Académico</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#">INICIO</a></li>
+                <li><a href="#">NOSOTROS</a></li>
+                <li><a href="#">PROGRAMAS</a></li>
+                <li><a href="#">INVESTIGACIÓN</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Banner (Slider) -->
-    <section class="banner-container" id="banner-slider">
-        <div class="slide active"><img src="https://via.placeholder.com/1200x400/003366/ffffff?text=Banner+Institucional+1" alt="B1"></div>
-        <div class="slide"><img src="https://via.placeholder.com/1200x400/d4af37/ffffff?text=Banner+Institucional+2" alt="B2"></div>
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    <section class="banner-container" id="slider">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&h=400&fit=crop" alt="Campus">
+            <div class="banner-text">
+                <h2>Centro de Conciliación</h2>
+                <p>Tu espacio de resolución de conflictos en Bucaramanga.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&h=400&fit=crop" alt="Estudiantes">
+        </div>
     </section>
-
-    <!-- Contenido Principal (Editable vía CMS) -->
-    <main class="content-area">
-        <h1>Bienvenidos a la Institución</h1>
-        <p>Este bloque representa el cuerpo de tu página, donde Joomla inyectará los artículos mediante la etiqueta &lt;jdoc:include type="component" /&gt; cuando realices la migración.</p>
-    </main>
 
     <script src="assets/js/main.js"></script>
 </body>
